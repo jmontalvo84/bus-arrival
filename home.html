@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <script src="jquery-2.2.4.min.js"></script>
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <!-- page content -->
+    Hello World!
+	
+	<div id="busInfo" />
+
+<script type="text/javascript">
+	function GetBusInfo(){
+		appID="cf6f058a"
+		appkey="4e515e2ff7c9e9be975cc76368cc0c7d"
+		var TfLAPI = "https://api.tfl.gov.uk/Line/c2/Arrivals?stopPointId=490003380N&app_id="+appID+"&app_key="+appkey;
+		$.getJSON(TfLAPI, function(result){
+			$("#busInfo").empty();
+        	$.each(result, function(i, field){
+            	$("#busInfo").append("<p>" + field["timeToStation"] + "</p>");
+			})
+		});
+    };
+	</script>
+
+    <script>
+	setInterval(GetBusInfo, 5000);
+    </script>
+
+
+	 <script type="text/javascript">
+	// (function() {
+	//   var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+	//   $.getJSON( flickerAPI, {
+	//     tags: "mount rainier",
+	//     tagmode: "any",
+	//     format: "json"
+	//   })
+	//     .done(function( data ) {
+	//       $.each( data.items, function( i, item ) {
+	//         $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
+	//         if ( i === 3 ) {
+	//           return false;
+	//         }
+	//       });
+	//     });
+	// })();
+	</script>
+
+	
+
+	<script>
+
+	document.write("abcd")
+
+	// $(function() {
+
+	//   var TfLAPI = "https://api.tfl.gov.uk/Line/c2/Arrivals?stopPointId=490003380N&app_id=&app_key=";
+	//   $.getJSON( TfLAPI, {
+	//     format: "json"
+	//   }
+	//     .done(function( data ) {
+	//     	document.write("abc")
+	//       $.each( data.items, function( i, item ) {
+	//       	document.write(item.toString)
+	//         //$( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
+	//         //if ( i === 3 ) {
+	//         //  return false;
+	//         }
+	//       });
+	//     });
+	// });
+	</script>
+
+  </body>
+</html>
